@@ -56,3 +56,12 @@ pub fn calibrate_v2(input: String) -> Vec<String> {
 
     calibration_values
 }
+
+pub fn answer(calibrations: Vec<String>) -> u32 {
+    let mut sum_calibration: u32 = 0;
+    for calib in calibrations {
+        sum_calibration += calib.parse::<u32>().unwrap();
+    }
+    sum_calibration
+}
+
