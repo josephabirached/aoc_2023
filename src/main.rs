@@ -3,6 +3,7 @@ use std::env;
 
 use aoc_2023::day1::day1;
 use aoc_2023::day2::day2;
+use aoc_2023::day3::day3;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -35,6 +36,24 @@ fn main() {
                 // Part 2
                 dbg!(day2::answer(day2::minimum_dice_required(&content_test)));
                 dbg!(day2::answer(day2::minimum_dice_required(&contents)));
+            }
+            "3" => {
+                // Part 1
+                let test_content = String::from("467...467*
+...*......
+..35..633.
+......**..
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598..");
+                
+                dbg!(day3::answer(day3::get_isolated_numbers(test_content)));
+
+                let contents = fs::read_to_string("src/day3/resource.txt").expect("Should have been able to read file");
+                dbg!(day3::answer(day3::get_isolated_numbers(contents)));
             }
             _ => {
                 println!("Please select a valid day to execute");
